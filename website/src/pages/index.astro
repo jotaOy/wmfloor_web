@@ -31,7 +31,7 @@ import WmFloorLogo from '@/assets/logo_w_m.webp';
 
 <style>
 	#logo-mask {
-		background: #000;
+		background: #fff;
 		mask-image: url("../assets/logo_w_m.svg");
 		mask-position: center;
 		mask-repeat: no-repeat;
@@ -56,6 +56,7 @@ import WmFloorLogo from '@/assets/logo_w_m.webp';
 		.to('#section-background', { duration: 2, opacity: 0.5}, "<")
 		.to('#logo-mask', {duration: 4, maskSize: "clamp(50vh, 50%, 100vh)"}, 0.15)
 		.to("#homePicture", {duration: 1, opacity: 0}, 0.4)
-		.to("#logo-mask", { duration: 2, background: "#00556D"}, 1)
+		// .to("#logo-mask", { duration: 2, background: "#00556D"}, 1)
+		// .to("#section-background", { duration: 1, zIndex: 10, backgroundColor: "#00556D"}, 1)
 	
 </script>
