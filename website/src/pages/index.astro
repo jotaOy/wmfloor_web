@@ -1,11 +1,61 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import SectionBackground from '@/assets/back_installation.webp';
+import WmFloorLogo from '@/assets/logo_w_m.webp';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="WMFloor" description="WMFloor">
+	<div id="logo-mask" class="fixed top-0 w-full h-screen">
+		<section id="homeSection">
+			<picture id="homePicture" >
+				<img 
+					id="section-background"
+					src={SectionBackground.src} alt="" 
+					class="absolute w-screen h-screen object-cover z-0"
+				/>
+				<!-- <img 
+					id="logo_wmfloor"
+					src={WmFloorLogo.src} alt="" 
+					class="absolute w-[50%] h-[50%] object-cover top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-1 scale-50"
+				/> -->
+				
+				
+			</picture>
+		</section>
+	</div>
 </Layout>
+
+
+<style>
+	#logo-mask {
+		background: #000;
+		mask-image: url("../assets/logo_w_m.svg");
+		mask-position: center;
+		mask-repeat: no-repeat;
+		mask-size: clamp(10000vh, 5500%, 0vh);
+	}
+</style>
+<script>
+	import {gsap} from "gsap";
+	// import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+	// gsap.registerPlugin(ScrollTrigger)
+
+	const tl = gsap.timeline({
+		ease: "power2.out",
+		// scrollTrigger: {
+		// 	scrub: 1,
+		// },
+	});
+
+	tl
+		// .to("#logo_wmfloor", {duration: 2, scale: 1})
+		.to('#section-background', { duration: 2, opacity: 0.5}, "<")
+		.to('#logo-mask', {duration: 4, maskSize: "clamp(50vh, 50%, 100vh)"}, 0.15)
+		.to("#homePicture", {duration: 1, opacity: 0}, 0.4)
+		.to("#logo-mask", { duration: 2, background: "#00556D"}, 1)
+	
+</script>

@@ -1,6 +1,4 @@
 ---
-import SectionBackground from '@/assets/back_installation.webp';
-import WmFloorLogo from '@/assets/logo_w_m.webp';
 interface Props {
 	title: string;
 	description: string;
@@ -19,22 +17,7 @@ const { title, description } = Astro.props;
 		<meta name="description" content={description} />
 	</head>
 	<body>
-		<section>
-			<picture id="firstSection">
-				<img 
-					id="section-background"
-					src={SectionBackground.src} alt="" 
-					class="absolute w-screen h-screen object-cover opacity-50 z-0"
-				/>
-				<img 
-					id="logo_wmfloor"
-					src={WmFloorLogo.src} alt="" 
-					class="absolute w-[50%] h-[50%] object-cover top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-1"
-				/>
-				
-				
-			</picture>
-		</section>
+		<slot/>
 		
 	</body>
 </html>
@@ -60,12 +43,3 @@ const { title, description } = Astro.props;
 		font-display: swap;
 	}
 </style>
-
-<script>
-	import {gsap} from "gsap";
-	
-	const tl = gsap.timeline({
-
-	})
-	
-</script>
