@@ -1,0 +1,71 @@
+---
+import SectionBackground from '@/assets/back_installation.webp';
+import WmFloorLogo from '@/assets/logo_w_m.webp';
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+	</head>
+	<body>
+		<section>
+			<picture id="firstSection">
+				<img 
+					id="section-background"
+					src={SectionBackground.src} alt="" 
+					class="absolute w-screen h-screen object-cover opacity-50 z-0"
+				/>
+				<img 
+					id="logo_wmfloor"
+					src={WmFloorLogo.src} alt="" 
+					class="absolute w-[50%] h-[50%] object-cover top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-1"
+				/>
+				
+				
+			</picture>
+		</section>
+		
+	</body>
+</html>
+
+<style is:global>
+	@import "tailwindcss";
+
+	@theme {
+		--font-sans: "Montserrat", system-ui, sans-serif;
+	}
+	html,
+	body {
+		height: 300vh;
+		overflow-x: hidden;
+		overscroll-behavior: none;
+	}
+
+	@font-face {
+		font-family: "Montserrat";
+		src: url("@/assets/fonts/Montserrat-wght.woff") format("woff");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+</style>
+
+<script>
+	import {gsap} from "gsap";
+	
+	const tl = gsap.timeline({
+
+	})
+	
+</script>
